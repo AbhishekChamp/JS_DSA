@@ -21,3 +21,12 @@
     3. If the value is too small, move the left pointer up
     4. If the value is too large, move the right pointer down
 4. If you never find the value, return -1
+
+### Naive String Search
+
+1. Loop over the longer string
+2. Loop over the shorter string
+3. If the characters don't match, break out of the inner loop
+4. If the characters do match, keep going
+5. If you complete the inner loop and find a match, increment the count of matches
+6. Return the count
