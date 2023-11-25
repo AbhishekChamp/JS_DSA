@@ -35,3 +35,40 @@ A sorting algorithm where the largest values bubble up to the top
 -   Start an inner loop with a variable called j from the beginning until i - 1
 -   If arr[j] is greater then arr[j+1], swap those two values
 -   Return the sorted array
+
+### Selection Sort
+
+Similar to bubble sort, but instead of first placing large values into sorted position, it places small values into sorted position
+
+### Selection Sort Pseudocode
+
+-   Store the first element as the smallest value you've seen so far
+-   Compare this item to the next item in the array until you find a smaller number
+-   If a smaller number is found, designate that smaller number to be the new "minimum" is not the value (index) you initially began with, swap the two values
+-   Repeat this with the next element until the array is sorted
+
+### Insertion Sort
+
+Builds up the sort by gradually creating a larger left half which is always sorted
+
+### Insertion Sort Pseudocode
+
+-   Start by picking the second element of the array
+-   Now compare the second element with the one before it and swap if necessary
+-   Continue to next element and if it is in the incorrect order, iterate through the sorted portion (i.e. the left side) to place the element in the correct place
+-   Repeat until the array is sorted
+
+### Big O of Sorting Algorithms
+
+| **Algorithm**  | **Time Complexity (Best)** | **Time Complexity (Average)** | **Time Complexity (Worst)** | **Space Complexity** |
+| -------------- | -------------------------- | ----------------------------- | --------------------------- | -------------------- |
+| Bubble Sort    | O(N)                       | O(N^2)                        | O(N^2)                      | O(1)                 |
+| Insertion Sort | O(N)                       | O(N^2)                        | O(N^2)                      | O(1)                 |
+| Selection Sort | O(N^2)                     | O(N^2)                        | O(N^2)                      | O(1)                 |
+
+### Recap on Bubble, Selection, Insertion Sort
+
+-   Sorting is fundamental
+-   Bubble sort, selection sort, insertion sort are all roughly equivalent
+-   All have average time complexities that are quadratic
+-   We need more complex algorithms for better time complexity
