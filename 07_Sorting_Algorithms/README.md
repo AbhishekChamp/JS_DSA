@@ -58,14 +58,6 @@ Builds up the sort by gradually creating a larger left half which is always sort
 -   Continue to next element and if it is in the incorrect order, iterate through the sorted portion (i.e. the left side) to place the element in the correct place
 -   Repeat until the array is sorted
 
-### Big O of Sorting Algorithms
-
-| **Algorithm**  | **Time Complexity (Best)** | **Time Complexity (Average)** | **Time Complexity (Worst)** | **Space Complexity** |
-| -------------- | -------------------------- | ----------------------------- | --------------------------- | -------------------- |
-| Bubble Sort    | O(N)                       | O(N^2)                        | O(N^2)                      | O(1)                 |
-| Insertion Sort | O(N)                       | O(N^2)                        | O(N^2)                      | O(1)                 |
-| Selection Sort | O(N^2)                     | O(N^2)                        | O(N^2)                      | O(1)                 |
-
 ### Recap on Bubble, Selection, Insertion Sort
 
 -   Sorting is fundamental
@@ -98,12 +90,6 @@ Builds up the sort by gradually creating a larger left half which is always sort
 -   Break up the array into halves until you have arrays that are empty or have one element
 -   Once you have smaller sorted arrays, merge those arrays with other sorted arrays until you are back at the full length of the array
 -   Once the array has been merged back together, return the merged (and sorted!) array
-
-### Big O of Merge Sort
-
-| **Time Complexity (Best)** | **Time Complexity (Average)** | **Time Complexity (Worst)** | **Space Complexity** |
-| -------------------------- | ----------------------------- | --------------------------- | -------------------- |
-| O(N log N)                 | O(N log N)                    | O(N log N)                  | O(N)                 |
 
 ### Quick Sort
 
@@ -141,3 +127,42 @@ Builds up the sort by gradually creating a larger left half which is always sort
 -   Call the pivot helper on the array
 -   When the helper returns to you the updated pivot index, recursively call the pivot helper on the subarray to the left of that index, and the subarray to the right of that index
 -   Your base case occurs when you consider a subarray with less that 2 elements
+
+### Radix Sort
+
+-   Radix sort is a special sorting algorithm that works on list of numbers
+-   It never makes comparison between elements
+-   It exploits the fact that information about the size of a number is encoded in the number of digits
+-   More digits means a bigger number
+
+### Radix Sort Helpers
+
+-   In order to implement radix sort, it's helpful to build a few helper functions first:
+    -   **_getDigit(num, place)_** - Returns the digit in num at the given place value
+    -   **_digitCount(num)_** - Returns the number of digits in num
+    -   **_mostDigits(nums)_** - Returns the number of digits in the largest numbers in the list
+
+### Radix Sort Pseudocode
+
+-   Define a function that accepts list of numbers
+-   Figure out how many digits the largest number has
+-   Loop from k = 0 up to largest number of digits
+-   For each iteration of the loop:
+    -   Create buckets for each digit (0 to 9)
+    -   Place each number in the corresponding bucket based on its kth digit
+-   Replace our existing array with values in our buckets, starting with 0 and going up to 9
+-   Return list at the end
+
+### Big O of Sorting Algorithms
+
+| **Algorithm**  | **Time Complexity (Best)** | **Time Complexity (Average)** | **Time Complexity (Worst)** | **Space Complexity** |
+| -------------- | -------------------------- | ----------------------------- | --------------------------- | -------------------- |
+| Bubble Sort    | O(N)                       | O(N^2)                        | O(N^2)                      | O(1)                 |
+| Insertion Sort | O(N)                       | O(N^2)                        | O(N^2)                      | O(1)                 |
+| Selection Sort | O(N^2)                     | O(N^2)                        | O(N^2)                      | O(1)                 |
+| Merge Sort     | O(N log N)                 | O(N log N)                    | O(N log N)                  | O(N)                 |
+| Quick Sort     | O(N log N)                 | O(N log N)                    | O(N^2)                      | O(N)                 |
+| Radix Sort     | O(Nk)                      | O(Nk)                         | O(Nk)                       | O(N + k)             |
+
+**_N - length of array_**
+**_k - number of digits (average)_**
