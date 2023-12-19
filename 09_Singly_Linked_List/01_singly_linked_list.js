@@ -69,20 +69,112 @@ class SinglyLinkedList {
         }
         return current;
     }
+    set(index, val) {
+        const foundNode = this.get(index);
+        if (foundNode) {
+            foundNode.val = val;
+            return true;
+        }
+        return false;
+    }
+
+    insert(index, val) {
+        if (index < 0 || index > this.length) return false;
+        if (index === this.length) return !!this.push(val);
+        if (index === 0) return !!this.unshift(val);
+        const newNode = new Node(val);
+        const prev = this.get(index - 1);
+        const temp = prev.next;
+        prev.next = newNode;
+        newNode.next = temp;
+        this.length++;
+        return true;
+    }
+
+    remove(index) {
+        if (index < 0 || index >= this.length) return undefined;
+        if (index === 0) return this.shift();
+        if (index === this.length - 1) return this.pop();
+        const prevNode = this.get(index - 1);
+        const removed = prevNode.next;
+        prevNode.next = removed.next;
+        this.length--;
+        return removed;
+    }
+
+    reverse() {
+        let node = this.head;
+        this.head = this.tail;
+        this.tail = node;
+        let next;
+        let prev = null;
+        for (let i = 0; i < this.length; i++) {
+            next = node.next;
+            node.next = prev;
+            prev = node;
+            node = next;
+        }
+        return this;
+    }
+
+    print() {
+        const arr = [];
+        let current = this.head;
+        while (current) {
+            arr.push(current.val);
+            current = current.next;
+        }
+        return arr;
+    }
 }
 
+// Initialize List
 const list = new SinglyLinkedList();
 console.log(list);
-console.log(list.pop());
-console.log(list.push("Hi"));
-console.log(list.push("Hello"));
-console.log(list.pop());
-console.log(list.pop());
-console.log(list.shift());
-console.log(list.push("Hi"));
-console.log(list.push("Hello"));
-console.log(list.shift());
-console.log(list.unshift("Hey"));
+console.log(list.print());
+
+// Push and Pop methods
+list.push("Hi");
+console.log(list.print());
+list.push("Hello");
+console.log(list.print());
+list.pop();
+console.log(list.print());
+list.pop();
+console.log(list.print());
+
+// Shift and Unshift
+list.shift();
+console.log(list.print());
+list.push("Hi");
+list.push("Hello");
+list.shift();
+console.log(list.print());
+list.unshift("Heyy");
+console.log(list.print());
+
+// Get
 console.log(list.get(1));
 console.log(list.get(-1));
 console.log(list.get(100));
+
+// Set
+list.set(0, "Hey");
+console.log(list.print());
+list.set(2, "How are you");
+console.log(list.print());
+
+// Insert
+list.insert(0, "Hi");
+console.log(list.print());
+list.insert(3, "How are you?");
+console.log(list.print());
+
+// Remove
+list.remove(3);
+console.log(list.print());
+console.log(list.remove(-2));
+
+// Reverse
+list.reverse();
+console.log(list.print());

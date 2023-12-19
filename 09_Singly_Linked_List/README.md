@@ -78,3 +78,66 @@ Retrieving a node by it's position in the linked List
 -   This function should accept an index
 -   If the index is less than zero or greater than or equal to the length of the list, return null
 -   Loop through the list until you reach the index and return the node at that specific index
+
+### Set
+
+Changing the value of a node based on it's position in the linked list
+
+### Set Pseudocode
+
+-   This function should accept a value and an index
+-   Use your get function to find the specific node
+-   If the node is not found, return False
+-   If the node is found, set the value of that node to be the value passed to the function and return True
+
+### Insert
+
+Adding a node to the Linked List at a specific position
+
+### Insert Pseudocode
+
+-   If the index is less than zero or greater than the length, return false
+-   If the index is same as the length, push a node to the end of the list
+-   If the index is 0, unshift a new node to the start of the list
+-   Otherwise, using the get method, access the node at the index -1
+-   Set the next property on that node to be new node
+-   Set the next property on the new node to be the previous next
+-   Increment the length
+-   Return true
+
+### Remove
+
+Removing a node from the Linked List at a specific position
+
+### Remove Pseudocode
+
+-   If the index is less than zero or greater than the length, return undefined
+-   If the index is the same as the length-1, pop
+-   If the index is 0, shift
+-   Otherwise, using the get method, access the node at the index-1
+-   Set the next property on that node to be the next of the next node
+-   Decrement the length
+-   Return the value of the node removed
+
+### Reverse
+
+Reversing the Linked List in place
+
+### Reverse Pseudocode
+
+-   Swap the head and tail
+-   Create a variable called next
+-   Create a variable called prev
+-   Create a variable called node and initialize it to the head property
+-   Loop through the list
+-   Set next to be the next property on whatever node is
+-   Set the next property on the node to be whatever prev is
+-   Set prev to the value of the node variable
+-   Set the node variable to be the value of the next variable
+
+### Big O
+
+-   Insertion - O(1)
+-   Removal - O(1) or O(N)
+-   Searching - O(N)
+-   Access - O(N)
