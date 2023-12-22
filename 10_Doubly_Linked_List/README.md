@@ -11,3 +11,51 @@ Almost identical to Singly Linked Lists, except every node has another pointer, 
 -   Set the tail to be newly created node
 -   Increment the length
 -   Return the Doubly Linked List
+
+### Popping
+
+Removing a node from the end of the Doubly Linked List
+
+### Popping Pseudocode
+
+-   If there is no head, return undefined
+-   Store the current tail in a variable to return later
+-   If the length is 1, set the head and tail to be null
+-   Update the tail to be the previous Node
+-   Set the new Tail's next to null
+-   Decrement the length
+-   Return the value removed
+
+### Shifting
+
+Removing a node from the beginning of the Doubly Linked List
+
+### Shifting Pseudocode
+
+-   If length is 0, return undefined
+-   Store the current head property in a variable
+-   If length is one
+    -   Set the head to be null
+    -   Set the tail to be null
+-   Update the head to be the next of the old head
+-   Set the head's prev property to null
+-   Set the old head's next to null
+-   Decrement the length
+-   Return old head
+
+### Unshifting
+
+Adding a node to the beginning of the Doubly Linked List
+
+### Unshifting Pseudocode
+
+-   Create a new node with the value passed to the function
+-   If the length is 0
+    -   Set the head to be the new node
+    -   Set the tail to be the new node
+-   Otherwise
+    -   Set the prev property on the head of the list to be new node
+    -   Set the next property on the new node to be the head property
+    -   Update the head to be the new node
+-   Increment the length
+-   Return the list
