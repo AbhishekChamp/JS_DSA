@@ -49,3 +49,21 @@ The procedure for deleting the root from the heap (effectively extracting the ma
     -   The child index you swapped to now becomes the new parent index
     -   Keep looping and swapping until neither child is larger than the element
     -   Return the old root
+
+### What is a Priority Queue
+
+-   A data structure where each element has a priority.
+-   Elements with higher priorities are served before elements with lower priorities.
+
+### Priority Queue Pseudocode
+
+-   Write a Min Binary Heap - lower number means higher priority.
+-   Each Node has a val and a priority. Use the priority to build the heap.
+-   **Enqueue** method accepts a value and priority, makes a new node, and puts it in the right spot based off its priority.
+-   **Dequeue** method removes root element, returns it, and rearranges heap using priority.
+
+### Big O of Binary Heaps
+
+-   Insertion - **O(log N)**
+-   Removal - **O(log N)**
+-   Search - **O(N)**
